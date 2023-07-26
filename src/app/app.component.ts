@@ -8,26 +8,30 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit {
   ContainerData: any[] = [];
+  titolo: string = "";
 
   constructor(private api: DataService) { }
 
   ngOnInit(): void {
-    // this.api.getData().subscribe((data) => {
-    //   this.ContainerData = data;
-    //   console.log("DATI", this.ContainerData);
-    // });
-
-    this.api.getDataTitolo(this.titolo).subscribe((titolo) => {
-      this.ContainerData = titolo
-      console.log("FIND", this.ContainerData);
-
-    })
+    this.loadData();
   }
 
+  loadData() {
+    this.api.getData().subscribe((data) => {
+      this.ContainerData = data;
+      console.log("DATI", this.ContainerData);
+    });
+  }
 
-  titolo: string = "a"
-
+  getTitolo(): void {
+    if (this.titolo) {
+      this.api.getDataTitolo(this.titolo).subscribe((titolo) => {
+        this.ContainerData = titolo;
+        console.log("FIND", this.ContainerData);
+      });
+    } else {
+      // Se il campo di ricerca è vuoto, ricarica tutti i dati
+      this.loadData();
+    }
+  }
 }
-
-
-
