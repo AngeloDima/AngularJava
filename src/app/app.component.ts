@@ -12,10 +12,22 @@ export class AppComponent implements OnInit {
   constructor(private api: DataService) { }
 
   ngOnInit(): void {
-    this.api.getData().subscribe((data) => {
-      this.ContainerData = data;
-      console.log("DATI", this.ContainerData);
+    // this.api.getData().subscribe((data) => {
+    //   this.ContainerData = data;
+    //   console.log("DATI", this.ContainerData);
+    // });
 
-    });
+    this.api.getDataTitolo(this.titolo).subscribe((titolo) => {
+      this.ContainerData = titolo
+      console.log("FIND", this.ContainerData);
+
+    })
   }
+
+
+  titolo: string = "a"
+
 }
+
+
+
