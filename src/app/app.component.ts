@@ -9,6 +9,7 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
   ContainerData: any[] = [];
   titolo: string = "";
+  prezzo: number = 0;
 
   constructor(private api: DataService) { }
 
@@ -23,14 +24,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getTitolo(): void {
+  search(): void {
     if (this.titolo) {
       this.api.getDataTitolo(this.titolo).subscribe((titolo) => {
         this.ContainerData = titolo;
         console.log("FIND", this.ContainerData);
       });
+    } else if (this.prezzo > 0) {
+      this.api.getDataPrezzo(this.prezzo).subscribe((prezzo) => {
+        this.ContainerData = prezzo;
+        console.log("FIND PREZZO", this.ContainerData);
+      });
     } else {
-      // Se il campo di ricerca è vuoto, ricarica tutti i dati
       this.loadData();
     }
   }
