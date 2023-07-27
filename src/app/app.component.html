@@ -17,6 +17,19 @@
 
 <hr>
 
+
+<h1>Aggiorna Prodotto</h1>
+<input type="number" [(ngModel)]="idProdottoDaAggiornare" name="idProdottoDaAggiornare" placeholder="ID Prodotto">
+
+<input type="number" [(ngModel)]="prezzoUpdate" name="prezzoUpdate" placeholder="NUMERO">
+
+<input type="text" [(ngModel)]="titoloUpdate" name="titoloUpdate" placeholder="TITOLO">
+
+<button (click)="updateFelpe()">Invia</button>
+
+
+
 <div *ngFor="let i of ContainerData">
   <h3>ID {{ i.id }} ---/TITOLO {{ i.titolo }} ---/PREZZO {{ i.prezzo }} </h3>
+  <button (click)="deleteFelpe(i.id)">DELETE!</button>
 </div>

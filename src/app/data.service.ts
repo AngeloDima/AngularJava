@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -14,6 +14,8 @@ export class DataService {
   urlPrezzo = "http://localhost:8080/felpe/prezzo/";
 
   urlCrea = "http://localhost:8080/felpe/create"
+
+
 
   getData(): Observable<any[]> {
     return this.http.get<any[]>(this.url);
@@ -36,6 +38,22 @@ export class DataService {
   }
 
 
+  urlPut = "http://localhost:8080/felpe/update/"
+
+  putData(id: number, data: any): Observable<any> {
+    const url = `${this.urlPut}${id}`;
+    // Specifica l'intestazione Content-Type come application/json
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put<any>(url, data, { headers: headers });
+  }
+
+
+  // DELETE
+
+  deleteData(id: number): Observable<any> {
+    const url = `${this.url}/${id}`;
+    return this.http.delete<any>(url);
+  }
 }
 
 
