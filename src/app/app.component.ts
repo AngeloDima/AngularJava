@@ -77,12 +77,9 @@ export class AppComponent implements OnInit {
 
 
   //DELETE
-  deleteFelpe(productId: number): void {
-
-
-    this.api.deleteData(productId).subscribe(() => {
-      console.log("Prodotto con ID " + productId + " ELIMINATO");
-      // You can perform other operations after successful deletion, such as reloading the data
+  deleteFelpe(id: number): void {
+    this.api.deleteData(id).subscribe(() => {
+      console.log("Prodotto con ID " + id + " ELIMINATO");
       this.loadData();
     });
   }
