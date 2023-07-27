@@ -1,5 +1,7 @@
 <h1>PROVE BACK END E ANGULAR</h1>
 
+<h1>Ricerca Prodotto</h1>
+
 <form (submit)="search()">
   <input type="text" [(ngModel)]="titolo" name="titolo" placeholder="TITOLO">
   <input type="number" [(ngModel)]="prezzo" name="prezzo">
@@ -12,6 +14,8 @@
 <input type="text" name="" id="" [(ngModel)]="titoloCreate" placeholder="TITOLO">
 <input type="number" name="" id="" [(ngModel)]="prezzoCreate" placeholder="NUMERO">
 <button (click)="createFelpe()">Invia</button>
+
+<hr>
 
 <div *ngFor="let i of ContainerData">
   <h3>ID {{ i.id }} ---/TITOLO {{ i.titolo }} ---/PREZZO {{ i.prezzo }} </h3>
