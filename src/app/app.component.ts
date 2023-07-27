@@ -78,10 +78,7 @@ export class AppComponent implements OnInit {
 
   //DELETE
   deleteFelpe(productId: number): void {
-    if (productId <= 0) {
-      console.log("Inserisci un ID valido per l'eliminazione.");
-      return;
-    }
+
 
     this.api.deleteData(productId).subscribe(() => {
       console.log("Prodotto con ID " + productId + " ELIMINATO");
