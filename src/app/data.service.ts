@@ -13,6 +13,8 @@ export class DataService {
   urlTitolo = "http://localhost:8080/felpe/find/";
   urlPrezzo = "http://localhost:8080/felpe/prezzo/";
 
+  urlCrea = "http://localhost:8080/felpe/create"
+
   getData(): Observable<any[]> {
     return this.http.get<any[]>(this.url);
   }
@@ -24,4 +26,17 @@ export class DataService {
   getDataPrezzo(prezzo: number): Observable<any[]> {
     return this.http.get<any[]>(this.urlPrezzo + prezzo);
   }
+
+
+
+  //RICHISTA POST
+  postData(titolo: string, prezzo: number): Observable<any> {
+    const body = { titolo: titolo, prezzo: prezzo };
+    return this.http.post<any>(this.urlCrea, body);
+  }
+
+
 }
+
+
+

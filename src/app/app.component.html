@@ -6,6 +6,13 @@
   <button type="submit">Cerca</button>
 </form>
 
+<hr>
+
+<h1>Crea Prodotto</h1>
+<input type="text" name="" id="" [(ngModel)]="titoloCreate" placeholder="TITOLO">
+<input type="number" name="" id="" [(ngModel)]="prezzoCreate" placeholder="NUMERO">
+<button (click)="createFelpe()">Invia</button>
+
 <div *ngFor="let i of ContainerData">
-  <h3> {{ i.id }} / {{ i.titolo }} {{ i.prezzo }} </h3>
+  <h3>ID {{ i.id }} ---/TITOLO {{ i.titolo }} ---/PREZZO {{ i.prezzo }} </h3>
 </div>

@@ -39,4 +39,15 @@ export class AppComponent implements OnInit {
       this.loadData();
     }
   }
+
+  prezzoCreate: number = 0;
+  titoloCreate: string = "";
+
+  createFelpe(): void {
+    this.api.postData(this.titoloCreate, this.prezzoCreate).subscribe((response) => {
+      console.log("CREATED", response);
+      this.loadData();
+    });
+  }
+
 }
